@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="row">
+            <div class="sidebar col-lg-3 col-md-3" style="padding-left: 40px">
+                <h2 class="h2-layout"> CS50 Wiki</h2>
+                <form action="{% url 'search' %}" method="GET" class="search-box">
+                    <input class="search-input" type="text" name="q" placeholder="Search Encyclopedia" aria-label="Search" style="width: 55px;">
+                    <div class="icon-box">
+                        <img src="https://static-00.iconduck.com/assets.00/magnifying-glass-icon-512x512-ziw2x4zm.png" alt="Search Icon" class="search-icon">
+                    </div>
+                </form>
+                <div>
+                <div class="inline" style="padding-top:10px">
+                    <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Home Icon" class="icon">
+                    </div>
+                    <a href="{% url 'index' %}">Home</a>
+                </div>
+                <div class="inline" style="padding-top:10px">
+                    <img src="https://cdn-icons-png.flaticon.com/512/5488/5488048.png" alt="New Icon" class="icon">
+                    <a href="{% url 'new_page' %}">Create New Page</a>
+                </div>
+                <div class="inline" style="padding-top:10px">
+                    <img src="https://cdn4.iconfinder.com/data/icons/arrows-glyph-4/64/Shuffle-512.png" alt="Random Icon" class="icon">
+                    <a href="{% url 'rand' %}">Random Page</a>
+                </div>
+                {% block nav %}
+                {% endblock %}
+            </div>
+        <div class="main col-lg-6 col-md-6">
+                {% block body %}
+                {% endblock %}
+            </div>
+        </div>
+
+    </body>
+</html>
