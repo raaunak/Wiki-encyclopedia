@@ -15,5 +15,10 @@ Ensure you have the following installed:
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
-   cd your-repo-name
+   git clone https://github.com/raaunak/Wiki-encyclopedia.git
+   cd wiki
+2. **Start Development Server**
+   ```bash
+   python manage.py runserver
+3. **Access the Server**
+   Open a browser and navigate to http://127.0.0.1:8000 to view the website.
